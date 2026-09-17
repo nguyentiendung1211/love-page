@@ -1,1995 +1,2081 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anh Yêu Em ❤️</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    font-family:
+        "Segoe UI",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255, 102, 157, 0.95) 0%,
+            rgba(220, 55, 120, 0.78) 27%,
+            rgba(117, 24, 76, 0.95) 67%,
+            #310d32 100%
+        );
+
+    color: white;
+}
+
+/* =====================================================
+   ÁNH SÁNG NỀN
+===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 25% 20%,
+            rgba(255,180,215,.14),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 75% 70%,
+            rgba(255,120,190,.10),
+            transparent 25%
+        );
+
+    animation: backgroundPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundPulse {
+    from {
+        transform: scale(1);
+        opacity: .75;
+    }
+
+    to {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   SAO
+===================================================== */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
 
-    <meta charset="UTF-8">
+    background: white;
+    border-radius: 50%;
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    box-shadow:
+        0 0 5px rgba(255,255,255,.9),
+        0 0 10px rgba(255,210,235,.5);
 
-    <title>Anh Yêu Em ❤️</title>
+    animation:
+        twinkle 2s ease-in-out infinite alternate;
+}
 
+.star.big {
+    width: 5px;
+    height: 5px;
 
-    <style>
+    box-shadow:
+        0 0 7px white,
+        0 0 15px rgba(255,190,220,.9);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@keyframes twinkle {
+    0% {
+        opacity: .2;
+        transform: scale(.7);
+    }
 
+    100% {
+        opacity: 1;
+        transform: scale(1.35);
+    }
+}
 
-        html,
-        body {
 
-            width: 100%;
-            height: 100%;
+/* =====================================================
+   BOKEH
+===================================================== */
 
-            overflow: hidden;
+.bokeh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
 
-            font-family:
-                "Segoe UI",
-                Arial,
-                sans-serif;
-        }
+.light {
+    position: absolute;
 
+    width: 70px;
+    height: 70px;
 
-        body {
+    border-radius: 50%;
 
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    #ff8fab 0%,
-                    #ff4d7d 25%,
-                    #9b1b52 60%,
-                    #28051b 100%
-                );
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,220,235,.22),
+            rgba(255,160,210,.08) 45%,
+            transparent 72%
+        );
 
-            color: white;
+    filter: blur(5px);
 
-            position: relative;
-        }
+    animation: lightFloat 8s ease-in-out infinite;
+}
 
+@keyframes lightFloat {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: .35;
+    }
 
-        /* ==================================================
-           NÚT LOA GÓC TRÁI
-        ================================================== */
+    50% {
+        transform: translateY(-25px) scale(1.15);
+        opacity: .7;
+    }
+}
 
-        .music-control {
 
-            position: fixed;
+/* =====================================================
+   CÀNH HOA ANH ĐÀO
+===================================================== */
 
-            top: 20px;
-            left: 20px;
+.sakura-corner {
+    position: fixed;
 
-            width: 52px;
-            height: 52px;
+    width: 470px;
+    height: 430px;
 
-            border-radius: 50%;
+    z-index: 2;
 
-            border: 1px solid
-                rgba(255,255,255,0.55);
+    pointer-events: none;
 
-            background:
-                rgba(255,255,255,0.18);
+    filter:
+        drop-shadow(
+            0 8px 12px rgba(45, 8, 30, .28)
+        );
+}
 
-            color: white;
 
-            font-size: 24px;
+/* Góc trên phải */
 
-            display: flex;
+.sakura-top {
+    top: -30px;
+    right: -45px;
 
-            align-items: center;
-            justify-content: center;
+    transform: rotate(2deg);
+}
 
-            cursor: pointer;
 
-            backdrop-filter:
-                blur(10px);
+/* Góc dưới trái */
 
-            -webkit-backdrop-filter:
-                blur(10px);
+.sakura-bottom {
+    bottom: -55px;
+    left: -50px;
 
-            box-shadow:
-                0 0 20px
-                rgba(255,255,255,0.25);
+    transform:
+        rotate(182deg)
+        scale(.96);
+}
 
-            z-index: 1000;
 
-            transition:
-                0.3s ease;
-        }
+/* =====================================================
+   CÀNH
+===================================================== */
 
+.sakura-branch {
+    position: absolute;
 
-        .music-control:hover {
+    height: 7px;
 
-            transform:
-                scale(1.1);
+    border-radius: 100%;
 
-            background:
-                rgba(255,255,255,0.3);
+    background:
+        linear-gradient(
+            90deg,
+            #281722 0%,
+            #4b2938 25%,
+            #754252 60%,
+            #3b202f 100%
+        );
 
-            box-shadow:
-                0 0 30px white;
-        }
+    box-shadow:
+        0 2px 3px rgba(0,0,0,.2);
 
+    transform-origin: left center;
+}
 
-        .music-control:active {
 
-            transform:
-                scale(0.92);
-        }
+/* Cành chính */
 
+.branch-main {
+    left: 72px;
+    top: 125px;
 
-        .music-control.playing {
+    width: 355px;
 
-            background:
-                rgba(
-                    233,
-                    30,
-                    99,
-                    0.45
-                );
+    transform: rotate(17deg);
+}
 
-            box-shadow:
-                0 0 25px
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.6
-                );
 
-            animation:
-                speakerPulse 1.5s
-                infinite;
-        }
+/* Nhánh */
 
+.branch-2 {
+    left: 145px;
+    top: 150px;
 
-        @keyframes speakerPulse {
+    width: 205px;
 
-            0%,
-            100% {
-                box-shadow:
-                    0 0 20px
-                    rgba(
-                        255,
-                        255,
-                        255,
-                        0.4
-                    );
-            }
+    transform: rotate(-35deg);
+}
 
-            50% {
-                box-shadow:
-                    0 0 35px
-                    rgba(
-                        255,
-                        105,
-                        180,
-                        0.9
-                    );
-            }
-        }
+.branch-3 {
+    left: 205px;
+    top: 190px;
 
+    width: 180px;
 
-        /* ==================================================
-           SAO
-        ================================================== */
+    transform: rotate(38deg);
+}
 
-        .stars {
+.branch-4 {
+    left: 105px;
+    top: 105px;
 
-            position: fixed;
+    width: 175px;
 
-            inset: 0;
+    transform: rotate(-52deg);
+}
 
-            pointer-events: none;
+.branch-5 {
+    left: 255px;
+    top: 220px;
 
-            z-index: 1;
-        }
+    width: 150px;
 
+    transform: rotate(-17deg);
+}
 
-        .star {
+.branch-6 {
+    left: 330px;
+    top: 160px;
 
-            position: absolute;
+    width: 105px;
 
-            width: 4px;
-            height: 4px;
+    transform: rotate(42deg);
+}
 
-            background: white;
 
-            border-radius: 50%;
+/* =====================================================
+   HOA 5 CÁNH
+===================================================== */
 
-            box-shadow:
-                0 0 10px white,
-                0 0 20px white;
+.sakura-flower {
+    position: absolute;
 
-            animation:
-                twinkle 2s
-                infinite alternate;
-        }
+    width: 46px;
+    height: 46px;
 
+    transform-origin: center;
 
-        @keyframes twinkle {
+    animation:
+        flowerSway 5s ease-in-out infinite;
+}
 
-            from {
 
-                opacity: 0.2;
+/* Cánh hoa */
 
-                transform:
-                    scale(0.5);
-            }
+.sakura-flower span {
+    position: absolute;
 
-            to {
+    left: 15px;
+    top: 3px;
 
-                opacity: 1;
+    width: 18px;
+    height: 25px;
 
-                transform:
-                    scale(1.5);
-            }
-        }
+    border-radius:
+        70% 70%
+        55% 55%;
 
+    background:
+        radial-gradient(
+            ellipse at 42% 28%,
+            #fffdfd 0%,
+            #ffeef5 25%,
+            #f9cfdf 55%,
+            #e9a8c3 80%,
+            #d887a9 100%
+        );
 
-        /* ==================================================
-           MÀN HÌNH CHÍNH
-        ================================================== */
+    box-shadow:
+        inset 0 -2px 3px rgba(190,80,130,.12),
+        0 2px 8px rgba(255,175,210,.4);
 
-        .container {
+    transform-origin:
+        50% 100%;
+}
 
-            position: relative;
 
-            z-index: 10;
+/* Xoay 5 cánh */
 
-            width: 100%;
+.sakura-flower span:nth-child(1) {
+    transform: rotate(0deg);
+}
 
-            height: 100vh;
+.sakura-flower span:nth-child(2) {
+    transform: rotate(72deg);
+}
 
-            display: flex;
+.sakura-flower span:nth-child(3) {
+    transform: rotate(144deg);
+}
 
-            align-items: center;
-            justify-content: center;
+.sakura-flower span:nth-child(4) {
+    transform: rotate(216deg);
+}
 
-            text-align: center;
+.sakura-flower span:nth-child(5) {
+    transform: rotate(288deg);
+}
 
-            padding: 20px;
-        }
 
+/* Nhụy */
 
-        .content {
+.sakura-flower::after {
+    content: "";
 
-            animation:
-                appear 2s ease forwards;
-        }
+    position: absolute;
 
+    left: 19px;
+    top: 19px;
 
-        @keyframes appear {
+    width: 9px;
+    height: 9px;
 
-            from {
+    border-radius: 50%;
 
-                opacity: 0;
+    background:
+        radial-gradient(
+            circle,
+            #fff3a8 0%,
+            #f4bd83 45%,
+            #df8da8 100%
+        );
 
-                transform:
-                    translateY(40px)
-                    scale(0.8);
-            }
+    box-shadow:
+        0 0 5px rgba(255,235,180,.9);
+}
 
-            to {
 
-                opacity: 1;
+/* =====================================================
+   VỊ TRÍ HOA
+===================================================== */
 
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
+.flower-1 {
+    left: 45px;
+    top: 76px;
 
+    transform: scale(1.12);
+}
 
-        /* ==================================================
-           DÒNG NHỎ
-        ================================================== */
+.flower-2 {
+    left: 125px;
+    top: 48px;
 
-        .small-text {
+    transform: scale(.92);
+}
 
-            font-size: 18px;
+.flower-3 {
+    left: 208px;
+    top: 102px;
 
-            letter-spacing: 5px;
+    transform: scale(1.15);
+}
 
-            margin-bottom: 20px;
+.flower-4 {
+    left: 286px;
+    top: 69px;
 
-            text-shadow:
-                0 0 15px white;
+    transform: scale(.82);
+}
 
-            animation:
-                fade 3s
-                infinite alternate;
-        }
+.flower-5 {
+    left: 154px;
+    top: 144px;
 
+    transform: scale(.78);
+}
 
-        @keyframes fade {
+.flower-6 {
+    left: 304px;
+    top: 142px;
 
-            from {
-                opacity: 0.5;
-            }
+    transform: scale(1.02);
+}
 
-            to {
-                opacity: 1;
-            }
-        }
+.flower-7 {
+    left: 83px;
+    top: 183px;
 
+    transform: scale(.86);
+}
 
-        /* ==================================================
-           ANH YÊU EM
-        ================================================== */
+.flower-8 {
+    left: 234px;
+    top: 200px;
 
-        h1 {
+    transform: scale(.72);
+}
 
-            font-size:
-                clamp(
-                    55px,
-                    12vw,
-                    150px
-                );
 
-            font-weight: 900;
+/* =====================================================
+   NỤ HOA
+===================================================== */
 
-            line-height: 1;
+.sakura-bud {
+    position: absolute;
 
-            color: white;
+    width: 12px;
+    height: 18px;
 
-            text-shadow:
-                0 0 10px #fff,
-                0 0 20px #ffb3c6,
-                0 0 40px #ff4d7d,
-                0 0 80px #ff1744;
+    border-radius:
+        65% 65%
+        45% 45%;
 
-            animation:
-                heartbeat 1.5s
-                infinite;
-        }
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f7,
+            #f2b5cd 55%,
+            #d985a7
+        );
 
+    box-shadow:
+        0 0 7px rgba(255,180,210,.7);
+}
 
-        @keyframes heartbeat {
+.bud-1 {
+    left: 112px;
+    top: 27px;
 
-            0%,
-            100% {
+    transform: rotate(-25deg);
+}
 
-                transform:
-                    scale(1);
-            }
+.bud-2 {
+    left: 245px;
+    top: 42px;
 
-            50% {
+    transform: rotate(24deg);
+}
 
-                transform:
-                    scale(1.07);
-            }
-        }
+.bud-3 {
+    left: 350px;
+    top: 116px;
 
+    transform: rotate(-22deg);
+}
 
-        /* ==================================================
-           LỜI YÊU
-        ================================================== */
+.bud-4 {
+    left: 59px;
+    top: 151px;
 
-        .subtitle {
+    transform: rotate(34deg);
+}
 
-            margin-top: 30px;
+.bud-5 {
+    left: 370px;
+    top: 190px;
 
-            font-size:
-                clamp(
-                    18px,
-                    3vw,
-                    30px
-                );
+    transform: rotate(30deg);
+}
 
-            font-style: italic;
 
-            line-height: 1.5;
+@keyframes flowerSway {
+    0%,
+    100% {
+        margin-top: 0;
+    }
 
-            text-shadow:
-                0 0 15px white;
+    50% {
+        margin-top: 3px;
+    }
+}
 
-            max-width: 700px;
 
-            margin-left: auto;
-            margin-right: auto;
-        }
+/* =====================================================
+   CÁNH HOA RƠI
+===================================================== */
 
+.petals {
+    position: fixed;
+    inset: 0;
 
-        /* ==================================================
-           TRÁI TIM
-        ================================================== */
+    z-index: 3;
 
-        .main-heart {
+    pointer-events: none;
 
-            font-size: 90px;
+    overflow: hidden;
+}
 
-            margin: 20px 0;
+.petal {
+    position: absolute;
 
-            filter:
-                drop-shadow(
-                    0 0 20px #ff1744
-                );
+    width: 12px;
+    height: 18px;
 
-            animation:
-                heartBeat 1s infinite,
-                floatHeart 3s
-                ease-in-out infinite;
-        }
+    border-radius:
+        70% 30%
+        70% 30%;
 
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f7,
+            #f5bdd1 55%,
+            #e28dab
+        );
 
-        @keyframes heartBeat {
+    opacity: .85;
 
-            0%,
-            100% {
+    box-shadow:
+        0 1px 5px rgba(255,160,200,.35);
 
-                transform:
-                    scale(1);
-            }
+    animation:
+        sakuraFall linear forwards;
+}
 
-            50% {
+@keyframes sakuraFall {
 
-                transform:
-                    scale(1.25);
-            }
-        }
+    0% {
+        transform:
+            translate3d(0,-40px,0)
+            rotate(0deg);
 
+        opacity: 0;
+    }
 
-        @keyframes floatHeart {
+    10% {
+        opacity: .9;
+    }
 
-            0%,
-            100% {
+    50% {
+        transform:
+            translate3d(
+                70px,
+                50vh,
+                0
+            )
+            rotate(180deg);
+    }
 
-                margin-top: 20px;
-            }
+    100% {
+        transform:
+            translate3d(
+                -80px,
+                110vh,
+                0
+            )
+            rotate(360deg);
 
-            50% {
+        opacity: 0;
+    }
+}
 
-                margin-top: 5px;
-            }
-        }
 
+/* Khi mở thư */
 
-        /* ==================================================
-           NÚT MỞ THƯ
-        ================================================== */
+.petals.love-mode {
+    opacity: .65;
+}
 
-        .buttons {
 
-            margin-top: 35px;
+/* =====================================================
+   TIM BAY
+===================================================== */
 
-            display: flex;
+.floating-hearts {
+    position: fixed;
+    inset: 0;
 
-            justify-content: center;
+    z-index: 1;
 
-            gap: 15px;
+    pointer-events: none;
 
-            flex-wrap: wrap;
-        }
+    overflow: hidden;
+}
 
+.heart {
+    position: absolute;
 
-        button {
+    font-size: 14px;
 
-            border: none;
+    animation:
+        heartFloat 5s linear forwards;
 
-            outline: none;
+    opacity: 0;
+}
 
-            padding:
-                14px 28px;
+@keyframes heartFloat {
 
-            border-radius: 50px;
+    0% {
+        transform:
+            translateY(20px)
+            scale(.5)
+            rotate(-10deg);
 
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.18
-                );
+        opacity: 0;
+    }
 
-            color: white;
+    15% {
+        opacity: .8;
+    }
 
-            font-size: 16px;
+    70% {
+        opacity: .5;
+    }
 
-            font-weight: bold;
+    100% {
+        transform:
+            translateY(-110vh)
+            translateX(70px)
+            scale(1.2)
+            rotate(20deg);
 
-            cursor: pointer;
+        opacity: 0;
+    }
+}
 
-            backdrop-filter:
-                blur(10px);
 
-            -webkit-backdrop-filter:
-                blur(10px);
+/* =====================================================
+   NỘI DUNG CHÍNH
+===================================================== */
 
-            border:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.5
-                );
+.container {
+    position: relative;
 
-            box-shadow:
-                0 0 20px
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.2
-                );
+    width: 100%;
+    height: 100vh;
 
-            transition:
-                0.3s ease;
-        }
+    z-index: 10;
 
+    display: flex;
 
-        button:hover {
+    align-items: center;
+    justify-content: center;
 
-            transform:
-                translateY(-5px)
-                scale(1.05);
+    text-align: center;
 
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.3
-                );
+    padding: 20px;
+}
 
-            box-shadow:
-                0 0 30px white;
-        }
 
+.content {
+    width: min(900px, 100%);
 
-        button:active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-            transform:
-                scale(0.95);
-        }
+    animation:
+        contentAppear 1.6s ease both;
+}
 
+@keyframes contentAppear {
 
-        /* ==================================================
-           TIM BAY
-        ================================================== */
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-        .floating-hearts {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-            position: fixed;
 
-            inset: 0;
+/* =====================================================
+   DÒNG NHỎ
+===================================================== */
 
-            overflow: hidden;
+.small-text {
+    margin-bottom: 18px;
 
-            pointer-events: none;
+    font-size: 17px;
 
-            z-index: 5;
-        }
+    letter-spacing: 8px;
 
+    font-weight: 500;
 
-        .heart {
+    color: rgba(255,255,255,.94);
 
-            position: absolute;
+    text-shadow:
+        0 0 8px rgba(255,255,255,.6),
+        0 0 18px rgba(255,150,200,.8);
 
-            bottom: -50px;
+    animation:
+        softGlow 3s ease-in-out infinite alternate;
+}
 
-            font-size: 25px;
+@keyframes softGlow {
 
-            animation:
-                flyUp linear forwards;
+    from {
+        opacity: .7;
+    }
 
-            filter:
-                drop-shadow(
-                    0 0 8px #ff9eb5
-                );
-        }
+    to {
+        opacity: 1;
+    }
+}
 
 
-        @keyframes flyUp {
+/* =====================================================
+   TIÊU ĐỀ
+===================================================== */
 
-            0% {
+h1 {
+    font-size:
+        clamp(
+            58px,
+            9vw,
+            116px
+        );
 
-                transform:
-                    translateY(0)
-                    translateX(0)
-                    rotate(0deg)
-                    scale(0.5);
+    line-height: .95;
 
-                opacity: 0;
-            }
+    font-weight: 900;
 
-            10% {
-                opacity: 1;
-            }
+    letter-spacing: 2px;
 
-            50% {
+    color: #fff;
 
-                transform:
-                    translateY(-50vh)
-                    translateX(50px)
-                    rotate(180deg)
-                    scale(1);
-            }
+    text-transform: uppercase;
 
-            100% {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 12px #fff,
+        0 0 28px #ffb4d1,
+        0 0 55px #ff5d9e,
+        0 0 90px rgba(255,60,150,.8);
 
-                transform:
-                    translateY(-120vh)
-                    translateX(-80px)
-                    rotate(360deg)
-                    scale(1.5);
+    animation:
+        titlePulse 3s ease-in-out infinite alternate;
+}
 
-                opacity: 0;
-            }
-        }
+@keyframes titlePulse {
 
+    from {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 12px #fff,
+            0 0 28px #ffb4d1,
+            0 0 55px #ff5d9e;
+    }
 
-        /* ==================================================
-           CÁNH HOA
-        ================================================== */
+    to {
+        text-shadow:
+            0 0 8px #fff,
+            0 0 18px #fff,
+            0 0 38px #ffc2da,
+            0 0 75px #ff4f99,
+            0 0 110px rgba(255,70,160,.85);
+    }
+}
 
-        .petals {
 
-            position: fixed;
+/* =====================================================
+   TIM CHÍNH
+===================================================== */
 
-            inset: 0;
+.main-heart {
+    margin: 35px 0 22px;
 
-            pointer-events: none;
+    font-size:
+        clamp(
+            58px,
+            8vw,
+            82px
+        );
 
-            z-index: 4;
+    line-height: 1;
 
-            transition:
-                filter 0.5s ease;
-        }
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255,50,90,.8)
+        )
+        drop-shadow(
+            0 0 25px rgba(255,80,150,.6)
+        );
 
+    animation:
+        heartBeat 1.5s ease-in-out infinite;
+}
 
-        .petal {
+@keyframes heartBeat {
 
-            position: absolute;
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-            top: -30px;
+    50% {
+        transform: scale(1.13);
+    }
+}
 
-            width: 14px;
-            height: 20px;
 
-            background:
-                #ffb6c8;
+/* =====================================================
+   CÂU NÓI
+===================================================== */
 
-            border-radius:
-                100% 0 100% 0;
+.subtitle {
+    max-width: 780px;
 
-            opacity: 0.8;
+    font-size:
+        clamp(
+            19px,
+            2.8vw,
+            29px
+        );
 
-            box-shadow:
-                0 0 10px
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.5
-                );
+    line-height: 1.65;
 
-            animation:
-                petalFall
-                linear forwards;
-        }
+    font-style: italic;
 
+    font-weight: 500;
 
-        @keyframes petalFall {
+    color: rgba(255,255,255,.96);
 
-            0% {
+    text-shadow:
+        0 0 8px rgba(255,255,255,.5),
+        0 0 20px rgba(255,130,190,.55);
 
-                transform:
-                    translateY(-50px)
-                    translateX(0)
-                    rotate(0deg);
-            }
+    margin-bottom: 34px;
+}
 
-            50% {
 
-                transform:
-                    translateY(50vh)
-                    translateX(100px)
-                    rotate(180deg);
-            }
+/* =====================================================
+   NÚT
+===================================================== */
 
-            100% {
+.buttons {
+    display: flex;
 
-                transform:
-                    translateY(110vh)
-                    translateX(-100px)
-                    rotate(360deg);
-            }
-        }
+    justify-content: center;
+    align-items: center;
+}
 
+.open-letter {
+    position: relative;
 
-        .petals.love-mode {
+    min-width: 195px;
 
-            filter:
-                drop-shadow(
-                    0 0 15px #ff69b4
-                );
-        }
+    padding: 15px 28px;
 
+    border-radius: 40px;
 
-        /* ==================================================
-           PHÁO HOA
-        ================================================== */
+    border: 1px solid rgba(255,255,255,.6);
 
-        .firework {
+    background:
+        rgba(255,255,255,.08);
 
-            position: fixed;
+    color: white;
 
-            width: 5px;
-            height: 5px;
+    font-size: 17px;
 
-            border-radius: 50%;
+    font-weight: 700;
 
-            pointer-events: none;
+    cursor: pointer;
 
-            z-index: 200;
-        }
+    backdrop-filter: blur(10px);
 
+    box-shadow:
+        0 0 0 4px rgba(255,255,255,.05),
+        0 0 20px rgba(255,120,190,.35);
 
-        .particle {
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
 
-            position: absolute;
+.open-letter:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
 
-            width: 6px;
-            height: 6px;
+    background:
+        rgba(255,255,255,.16);
 
-            border-radius: 50%;
+    box-shadow:
+        0 0 0 5px rgba(255,255,255,.07),
+        0 0 35px rgba(255,100,180,.65);
+}
 
-            background: white;
+.open-letter:active {
+    transform: scale(.96);
+}
 
-            box-shadow:
-                0 0 10px white,
-                0 0 20px #ffb6c8;
 
-            animation:
-                explode
-                1.2s
-                ease-out
-                forwards;
-        }
+/* =====================================================
+   PHÁO HOA
+===================================================== */
 
+.firework {
+    position: fixed;
 
-        @keyframes explode {
+    width: 5px;
+    height: 5px;
 
-            0% {
+    border-radius: 50%;
 
-                transform:
-                    translate(0, 0)
-                    scale(1);
+    z-index: 50;
 
-                opacity: 1;
-            }
+    pointer-events: none;
+}
 
-            100% {
+.particle {
+    position: absolute;
 
-                transform:
-                    translate(
-                        var(--x),
-                        var(--y)
-                    )
-                    scale(0);
+    width: 4px;
+    height: 4px;
 
-                opacity: 0;
-            }
-        }
+    border-radius: 50%;
 
+    background: white;
 
-        /* ==================================================
-           LÁ THƯ
-        ================================================== */
+    box-shadow:
+        0 0 5px white,
+        0 0 12px rgba(255,150,210,.9);
 
-        .letter-overlay {
+    animation:
+        explode 1.4s ease-out forwards;
+}
 
-            position: fixed;
+@keyframes explode {
 
-            inset: 0;
+    0% {
+        transform:
+            translate(0,0)
+            scale(1);
 
-            display: none;
+        opacity: 1;
+    }
 
-            align-items: center;
+    100% {
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(.15);
 
-            justify-content: center;
+        opacity: 0;
+    }
+}
 
-            background:
-                rgba(
-                    20,
-                    0,
-                    15,
-                    0.75
-                );
 
-            backdrop-filter:
-                blur(10px);
+/* =====================================================
+   LÁ THƯ
+===================================================== */
 
-            -webkit-backdrop-filter:
-                blur(10px);
+.letter-overlay {
+    position: fixed;
 
-            z-index: 100;
+    inset: 0;
 
-            padding: 20px;
+    z-index: 100;
 
-            animation:
-                overlayFade
-                0.5s ease;
-        }
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 
-        @keyframes overlayFade {
+    padding: 20px;
 
-            from {
-                opacity: 0;
-            }
+    background:
+        rgba(35, 5, 30, .72);
 
-            to {
-                opacity: 1;
-            }
-        }
+    backdrop-filter:
+        blur(12px);
 
+    opacity: 0;
+    visibility: hidden;
 
-        .letter {
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+}
 
-            width:
-                min(
-                    500px,
-                    90vw
-                );
+.letter-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
 
-            max-height: 85vh;
 
-            overflow-y: auto;
+.letter {
+    position: relative;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff7f9,
-                    #ffdce7
-                );
+    width: min(720px, 100%);
 
-            color:
-                #7a1742;
+    max-height: 82vh;
 
-            border-radius: 25px;
+    overflow-y: auto;
 
-            padding:
-                40px 30px;
+    padding:
+        60px
+        55px;
 
-            box-shadow:
-                0 0 50px
-                rgba(
-                    255,
-                    105,
-                    150,
-                    0.7
-                );
+    border-radius: 5px;
 
-            animation:
-                letterOpen
-                0.8s ease;
-        }
+    background:
+        linear-gradient(
+            135deg,
+            #fffdfb,
+            #fff7fa
+        );
 
+    color: #642d48;
 
-        @keyframes letterOpen {
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45),
+        0 0 45px rgba(255,140,190,.35);
 
-            from {
+    transform:
+        translateY(30px)
+        scale(.92);
 
-                transform:
-                    scale(0.5)
-                    rotate(-5deg);
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1);
+}
 
-                opacity: 0;
-            }
+.letter-overlay.show .letter {
+    transform:
+        translateY(0)
+        scale(1);
+}
 
-            to {
 
-                transform:
-                    scale(1)
-                    rotate(0);
+/* viền */
 
-                opacity: 1;
-            }
-        }
+.letter::before {
+    content: "";
 
+    position: absolute;
 
-        .letter h2 {
+    inset: 15px;
 
-            font-size: 32px;
+    border: 1px solid #dcb0c0;
 
-            margin-bottom: 20px;
-        }
+    pointer-events: none;
+}
 
+.letter::after {
+    content: "🌸";
 
-        .letter p {
+    position: absolute;
 
-            font-size: 18px;
+    right: 25px;
+    top: 15px;
 
-            line-height: 1.8;
-        }
+    font-size: 42px;
 
+    opacity: .6;
+}
 
-        .letter strong {
 
-            font-size: 22px;
+/* =====================================================
+   NỘI DUNG THƯ
+===================================================== */
 
-            text-shadow:
-                0 0 8px
-                rgba(
-                    233,
-                    30,
-                    99,
-                    0.4
-                );
-        }
+.letter h2 {
+    position: relative;
 
+    margin-bottom: 25px;
 
-        .close {
+    text-align: center;
 
-            margin-top: 25px;
+    color: #c03f72;
 
-            background:
-                #e91e63;
-        }
+    font-size: 32px;
 
+    text-shadow:
+        0 2px 10px rgba(220,90,140,.2);
+}
 
-        /* ==================================================
-           KHI MỞ THƯ
-        ================================================== */
+.letter p {
+    position: relative;
 
-        body.letter-open
-        .content {
+    margin-bottom: 17px;
 
-            filter:
-                brightness(1.1);
-        }
+    font-size: 18px;
 
+    line-height: 1.9;
 
-        /* ==================================================
-           RESPONSIVE
-        ================================================== */
+    color: #67344d;
+}
 
-        @media (max-width: 600px) {
+.letter strong {
+    color: #c13e73;
+}
 
-            .music-control {
+.close {
+    display: block;
 
-                top: 15px;
-                left: 15px;
+    margin:
+        28px
+        auto
+        0;
 
-                width: 45px;
-                height: 45px;
+    padding:
+        10px
+        25px;
 
-                font-size: 21px;
-            }
+    border-radius: 30px;
 
+    border: 1px solid #d899b1;
 
-            .container {
+    background: #fff;
 
-                padding: 15px;
-            }
+    color: #b63d6d;
 
+    font-weight: 700;
 
-            .small-text {
+    cursor: pointer;
 
-                font-size: 13px;
+    transition: .25s;
+}
 
-                letter-spacing: 3px;
+.close:hover {
+    background: #fff0f5;
 
-                margin-bottom: 15px;
-            }
+    transform: scale(1.05);
+}
 
 
-            h1 {
+/* =====================================================
+   SCROLLBAR THƯ
+===================================================== */
 
-                font-size: 58px;
-            }
+.letter::-webkit-scrollbar {
+    width: 6px;
+}
 
+.letter::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-            .main-heart {
+.letter::-webkit-scrollbar-thumb {
+    background: #e2a8bd;
+    border-radius: 20px;
+}
 
-                font-size: 65px;
 
-                margin: 15px 0;
-            }
+/* =====================================================
+   MOBILE
+===================================================== */
 
+@media (max-width: 700px) {
 
-            .subtitle {
+    .sakura-corner {
+        width: 290px;
+        height: 280px;
+    }
 
-                font-size: 17px;
+    .sakura-top {
+        top: -35px;
+        right: -95px;
+        transform: rotate(2deg) scale(.85);
+    }
 
-                line-height: 1.6;
+    .sakura-bottom {
+        bottom: -55px;
+        left: -100px;
+        transform:
+            rotate(182deg)
+            scale(.82);
+    }
 
-                max-width: 350px;
-            }
+    .small-text {
+        font-size: 12px;
+        letter-spacing: 4px;
+        margin-bottom: 14px;
+    }
 
+    h1 {
+        font-size: clamp(48px, 14vw, 78px);
+        letter-spacing: 0;
+    }
 
-            .buttons {
+    .main-heart {
+        margin-top: 28px;
+        margin-bottom: 17px;
+    }
 
-                margin-top: 25px;
-            }
+    .subtitle {
+        font-size: 17px;
+        line-height: 1.55;
+        max-width: 92%;
+        margin-bottom: 28px;
+    }
 
+    .open-letter {
+        min-width: 175px;
+        padding: 13px 23px;
+        font-size: 15px;
+    }
 
-            button {
+    .letter {
+        padding:
+            45px
+            28px
+            35px;
 
-                padding:
-                    12px 20px;
+        max-height: 85vh;
+    }
 
-                font-size: 14px;
-            }
+    .letter h2 {
+        font-size: 27px;
+    }
 
+    .letter p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+}
 
-            .letter {
 
-                padding:
-                    30px 22px;
-            }
+/* =====================================================
+   GIẢM CHUYỂN ĐỘNG
+===================================================== */
 
+@media (prefers-reduced-motion: reduce) {
 
-            .letter h2 {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
 
-                font-size: 27px;
-            }
-
-
-            .letter p {
-
-                font-size: 16px;
-            }
-        }
-
-
-        @media (max-height: 700px) {
-
-            .small-text {
-
-                margin-bottom: 10px;
-            }
-
-
-            .main-heart {
-
-                margin: 10px 0;
-
-                font-size: 60px;
-            }
-
-
-            .subtitle {
-
-                margin-top: 15px;
-
-                font-size: 16px;
-            }
-
-
-            .buttons {
-
-                margin-top: 20px;
-            }
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- ==================================================
-         NHẠC
-    ================================================== -->
+<!-- =====================================================
+     SAO
+===================================================== -->
 
-    <audio
-        id="music"
-        loop
-        preload="auto"
-        playsinline
-    >
+<div class="stars" id="stars"></div>
 
-        <source
-            src="music.mp3"
-            type="audio/mpeg"
-        >
 
-    </audio>
+<!-- =====================================================
+     BOKEH
+===================================================== -->
 
+<div class="bokeh" id="bokeh"></div>
 
-    <!-- ==================================================
-         NÚT LOA
-    ================================================== -->
 
-    <button
-        class="music-control"
-        id="musicControl"
-        onclick="toggleMusic()"
-        aria-label="Bật hoặc tắt nhạc"
-    >
-        🔊
-    </button>
+<!-- =====================================================
+     CÀNH HOA GÓC TRÊN PHẢI
+===================================================== -->
 
+<div class="sakura-corner sakura-top">
 
-    <!-- ==================================================
-         SAO
-    ================================================== -->
+    <div class="sakura-branch branch-main"></div>
+    <div class="sakura-branch branch-2"></div>
+    <div class="sakura-branch branch-3"></div>
+    <div class="sakura-branch branch-4"></div>
+    <div class="sakura-branch branch-5"></div>
+    <div class="sakura-branch branch-6"></div>
 
-    <div
-        class="stars"
-        id="stars"
-    ></div>
 
-
-    <!-- ==================================================
-         CÁNH HOA
-    ================================================== -->
-
-    <div
-        class="petals"
-        id="petals"
-    ></div>
-
-
-    <!-- ==================================================
-         TIM BAY
-    ================================================== -->
-
-    <div
-        class="floating-hearts"
-        id="hearts"
-    ></div>
-
-
-    <!-- ==================================================
-         NỘI DUNG
-    ================================================== -->
-
-    <main class="container">
-
-        <div class="content">
-
-
-            <div class="small-text">
-
-                💕 GỬI ĐẾN NGƯỜI ANH YÊU 💕
-
-            </div>
-
-
-            <h1>
-
-                ANH YÊU EM
-
-            </h1>
-
-
-            <div class="main-heart">
-
-                ❤️
-
-            </div>
-
-
-            <div class="subtitle">
-
-                “Nếu cuộc đời là một câu chuyện,
-                thì anh muốn em là chương đẹp nhất
-                trong câu chuyện của anh.” 💗
-
-            </div>
-
-
-            <div class="buttons">
-
-
-                <!-- CHỈ CÒN NÚT MỞ THƯ -->
-
-                <button
-                    onclick="showLetter()"
-                >
-
-                    💌 Mở lời nhắn
-
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- ==================================================
-         LÁ THƯ
-    ================================================== -->
-
-    <div
-        class="letter-overlay"
-        id="letterOverlay"
-    >
-
-        <div class="letter">
-
-
-            <h2>
-
-                💌 Gửi em
-
-            </h2>
-
-
-            <p>
-
-                Anh không biết phải nói thế nào
-                để diễn tả hết tình cảm của anh dành cho em.
-
-                <br>
-                <br>
-
-                Anh chỉ muốn em biết rằng...
-
-                <br>
-                <br>
-
-                <strong>
-
-                    Anh yêu em rất nhiều ❤️
-
-                </strong>
-
-                <br>
-                <br>
-
-                Mong rằng mỗi ngày của em đều có
-                thật nhiều niềm vui,
-                thật nhiều nụ cười
-                và luôn có anh ở bên. 🌷
-
-            </p>
-
-
-            <button
-                class="close"
-                onclick="closeLetter()"
-            >
-
-                ❤️ Đóng lại
-
-            </button>
-
-
-        </div>
-
+    <div class="sakura-flower flower-1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
 
 
-    <script>
+    <div class="sakura-flower flower-2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-        /* ==================================================
-           TẠO SAO
-        ================================================== */
-
-        const stars =
-            document.getElementById(
-                "stars"
-            );
-
-
-        for (
-            let i = 0;
-            i < 100;
-            i++
-        ) {
-
-            const star =
-                document.createElement(
-                    "div"
-                );
+    <div class="sakura-flower flower-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            star.className =
-                "star";
+    <div class="sakura-flower flower-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            star.style.left =
-                Math.random() *
-                100 +
-                "%";
+    <div class="sakura-flower flower-5">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            star.style.top =
-                Math.random() *
-                100 +
-                "%";
+    <div class="sakura-flower flower-6">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            star.style.animationDelay =
-                Math.random() *
-                3 +
-                "s";
+    <div class="sakura-flower flower-7">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            star.style.opacity =
-                Math.random();
+    <div class="sakura-flower flower-8">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            stars.appendChild(
-                star
-            );
-        }
+    <div class="sakura-bud bud-1"></div>
+    <div class="sakura-bud bud-2"></div>
+    <div class="sakura-bud bud-3"></div>
+    <div class="sakura-bud bud-4"></div>
+    <div class="sakura-bud bud-5"></div>
+
+</div>
 
 
 
-        /* ==================================================
-           TIM BAY
-        ================================================== */
+<!-- =====================================================
+     CÀNH HOA GÓC DƯỚI TRÁI
+===================================================== -->
 
-        const hearts =
-            document.getElementById(
-                "hearts"
-            );
+<div class="sakura-corner sakura-bottom">
 
-
-        function createHeart() {
-
-            const heart =
-                document.createElement(
-                    "div"
-                );
+    <div class="sakura-branch branch-main"></div>
+    <div class="sakura-branch branch-2"></div>
+    <div class="sakura-branch branch-3"></div>
+    <div class="sakura-branch branch-4"></div>
+    <div class="sakura-branch branch-5"></div>
+    <div class="sakura-branch branch-6"></div>
 
 
-            heart.className =
-                "heart";
+    <div class="sakura-flower flower-1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            const emojis = [
-
-                "❤️",
-                "💖",
-                "💕",
-                "💗",
-                "💓",
-                "💘",
-                "💝"
-
-            ];
+    <div class="sakura-flower flower-2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            heart.innerHTML =
-                emojis[
-                    Math.floor(
-                        Math.random()
-                        *
-                        emojis.length
-                    )
-                ];
+    <div class="sakura-flower flower-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            heart.style.left =
-                Math.random() *
-                100 +
-                "%";
+    <div class="sakura-flower flower-4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            heart.style.fontSize =
-                15 +
-                Math.random() *
-                30 +
-                "px";
+    <div class="sakura-flower flower-5">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            heart.style.animationDuration =
-                5 +
-                Math.random() *
-                6 +
-                "s";
+    <div class="sakura-flower flower-6">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            hearts.appendChild(
-                heart
-            );
+    <div class="sakura-flower flower-7">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
 
-            setTimeout(
-                () => {
+    <div class="sakura-flower flower-8">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-                    heart.remove();
-
-                },
-                12000
-            );
-        }
+</div>
 
 
-        setInterval(
-            createHeart,
-            350
+
+<!-- =====================================================
+     CÁNH HOA RƠI
+===================================================== -->
+
+<div class="petals" id="petals"></div>
+
+
+<!-- =====================================================
+     TIM BAY
+===================================================== -->
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+
+
+<!-- =====================================================
+     NỘI DUNG CHÍNH
+===================================================== -->
+
+<main class="container">
+
+    <section class="content">
+
+        <div class="small-text">
+            💕 GỬI ĐẾN NGƯỜI ANH YÊU 💕
+        </div>
+
+
+        <h1>
+            ANH YÊU EM
+        </h1>
+
+
+        <div class="main-heart">
+            ❤️
+        </div>
+
+
+        <div class="subtitle">
+            “Nếu cuộc đời là một câu chuyện, thì anh muốn em là
+            <br class="desktop-break">
+            chương đẹp nhất trong câu chuyện của anh.” 💗
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                class="open-letter"
+                onclick="showLetter()">
+
+                💌 &nbsp; Mở lời nhắn
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     LÁ THƯ
+===================================================== -->
+
+<div
+    class="letter-overlay"
+    id="letterOverlay"
+    onclick="outsideClose(event)"
+>
+
+    <div class="letter">
+
+        <h2>
+            💌 Gửi em, người anh yêu
+        </h2>
+
+
+        <p>
+            Em à,
+        </p>
+
+
+        <p>
+            Anh không biết từ khi nào mà nụ cười của em
+            lại trở thành điều anh mong muốn nhìn thấy
+            mỗi ngày.
+        </p>
+
+
+        <p>
+            Có những ngày mọi thứ xung quanh thật mệt mỏi,
+            nhưng chỉ cần nghĩ đến em thôi,
+            anh lại cảm thấy mọi thứ trở nên nhẹ nhàng hơn.
+        </p>
+
+
+        <p>
+            Anh không hứa rằng cuộc sống của chúng ta
+            sẽ luôn hoàn hảo.
+            Nhưng anh có thể hứa rằng,
+            nếu em cho anh cơ hội,
+            anh sẽ luôn cố gắng để trở thành người
+            có thể ở bên em những lúc em cần.
+        </p>
+
+
+        <p>
+            Cảm ơn em vì đã xuất hiện trong cuộc đời anh.
+            Cảm ơn em vì những điều nhỏ bé mà em mang đến
+            nhưng lại khiến trái tim anh vui rất nhiều.
+        </p>
+
+
+        <p>
+            Và nếu phải chọn một điều để nói với em
+            ngay lúc này...
+        </p>
+
+
+        <p>
+            <strong>
+                Anh yêu em. ❤️
+            </strong>
+        </p>
+
+
+        <button
+            class="close"
+            onclick="closeLetter()">
+
+            Đóng thư
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   TẠO SAO
+===================================================== */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 145; i++) {
+
+    const star = document.createElement("div");
+
+    star.className =
+        "star" +
+        (Math.random() > .9 ? " big" : "");
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    star.style.animationDuration =
+        1.5 + Math.random() * 3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+
+/* =====================================================
+   TẠO BOKEH
+===================================================== */
+
+const bokeh =
+    document.getElementById("bokeh");
+
+for (let i = 0; i < 13; i++) {
+
+    const light =
+        document.createElement("div");
+
+    light.className = "light";
+
+    const size =
+        40 + Math.random() * 90;
+
+    light.style.width =
+        size + "px";
+
+    light.style.height =
+        size + "px";
+
+    light.style.left =
+        Math.random() * 100 + "%";
+
+    light.style.top =
+        Math.random() * 100 + "%";
+
+    light.style.animationDelay =
+        Math.random() * 7 + "s";
+
+    light.style.animationDuration =
+        6 + Math.random() * 8 + "s";
+
+    bokeh.appendChild(light);
+}
+
+
+
+/* =====================================================
+   TẠO CÁNH HOA RƠI
+===================================================== */
+
+const petals =
+    document.getElementById("petals");
+
+
+function createPetal() {
+
+    const petal =
+        document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.style.left =
+        Math.random() * 100 + "%";
+
+    petal.style.width =
+        8 + Math.random() * 9 + "px";
+
+    petal.style.height =
+        12 + Math.random() * 11 + "px";
+
+    petal.style.animationDuration =
+        5 + Math.random() * 7 + "s";
+
+    petal.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    petal.style.transform =
+        `rotate(${Math.random() * 360}deg)`;
+
+    petals.appendChild(petal);
+
+
+    setTimeout(() => {
+
+        petal.remove();
+
+    }, 14000);
+}
+
+
+/* tạo sẵn */
+
+for (let i = 0; i < 22; i++) {
+
+    setTimeout(
+        createPetal,
+        i * 300
+    );
+
+}
+
+
+/* tạo liên tục */
+
+setInterval(
+    createPetal,
+    550
+);
+
+
+
+/* =====================================================
+   TIM BAY
+===================================================== */
+
+const floatingHearts =
+    document.getElementById(
+        "floatingHearts"
+    );
+
+
+function createFloatingHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+            ? "💗"
+            : "💕";
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+    heart.style.bottom =
+        "-30px";
+
+    heart.style.fontSize =
+        10 + Math.random() * 14 + "px";
+
+    heart.style.animationDuration =
+        4 + Math.random() * 4 + "s";
+
+    floatingHearts.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 9000);
+}
+
+
+setInterval(
+    createFloatingHeart,
+    700
+);
+
+
+
+/* =====================================================
+   MỞ THƯ
+===================================================== */
+
+function showLetter() {
+
+    const overlay =
+        document.getElementById(
+            "letterOverlay"
         );
 
+    overlay.classList.add("show");
+
+    petals.classList.add("love-mode");
 
 
-        /* ==================================================
-           CÁNH HOA
-        ================================================== */
+    /* pháo hoa */
 
-        const petals =
-            document.getElementById(
-                "petals"
-            );
+    setTimeout(
+        bigFirework,
+        100
+    );
 
+    setTimeout(
+        bigFirework,
+        850
+    );
 
-        function createPetal() {
+    setTimeout(
+        bigFirework,
+        1700
+    );
 
-            const petal =
-                document.createElement(
-                    "div"
-                );
-
-
-            petal.className =
-                "petal";
-
-
-            petal.style.left =
-                Math.random() *
-                100 +
-                "%";
+    setTimeout(
+        bigFirework,
+        2900
+    );
 
 
-            petal.style.width =
-                8 +
-                Math.random() *
-                12 +
-                "px";
+    /* thêm cánh hoa */
 
+    for (let i = 0; i < 30; i++) {
 
-            petal.style.height =
-                12 +
-                Math.random() *
-                15 +
-                "px";
-
-
-            petal.style.animationDuration =
-                6 +
-                Math.random() *
-                7 +
-                "s";
-
-
-            petal.style.opacity =
-                0.3 +
-                Math.random() *
-                0.7;
-
-
-            petals.appendChild(
-                petal
-            );
-
-
-            setTimeout(
-                () => {
-
-                    petal.remove();
-
-                },
-                15000
-            );
-        }
-
-
-        setInterval(
+        setTimeout(
             createPetal,
-            500
+            i * 100
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ĐÓNG THƯ
+===================================================== */
+
+function closeLetter() {
+
+    const overlay =
+        document.getElementById(
+            "letterOverlay"
+        );
+
+    overlay.classList.remove("show");
+
+    petals.classList.remove("love-mode");
+}
+
+
+
+/* =====================================================
+   CLICK RA NGOÀI THƯ
+===================================================== */
+
+function outsideClose(event) {
+
+    if (
+        event.target.id ===
+        "letterOverlay"
+    ) {
+
+        closeLetter();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PHÁO HOA
+===================================================== */
+
+function firework(x, y) {
+
+    const container =
+        document.createElement(
+            "div"
+        );
+
+    container.className =
+        "firework";
+
+    container.style.left =
+        x + "px";
+
+    container.style.top =
+        y + "px";
+
+
+    document.body.appendChild(
+        container
+    );
+
+
+    const count = 65;
+
+
+    for (let i = 0; i < count; i++) {
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+        particle.className =
+            "particle";
+
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distance =
+            45 +
+            Math.random() *
+            130;
+
+
+        const px =
+            Math.cos(angle) *
+            distance;
+
+
+        const py =
+            Math.sin(angle) *
+            distance;
+
+
+        particle.style.setProperty(
+            "--x",
+            px + "px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            py + "px"
         );
 
 
-
-        /* ==================================================
-           MỞ THƯ
-        ================================================== */
-
-        function showLetter() {
-
-            const overlay =
-                document.getElementById(
-                    "letterOverlay"
-                );
+        particle.style.animationDelay =
+            Math.random() * .12 + "s";
 
 
-            overlay.style.display =
-                "flex";
+        container.appendChild(
+            particle
+        );
+    }
 
 
-            document.body.classList.add(
-                "letter-open"
-            );
+    setTimeout(() => {
 
+        container.remove();
 
-            petals.classList.add(
-                "love-mode"
-            );
-
-
-            /*
-             * Khi mở thư:
-             * nếu nhạc chưa chạy thì thử phát
-             */
-
-            if (
-                music.paused
-            ) {
-
-                startMusic();
-
-            }
-
-
-            /*
-             * PHÁO HOA
-             */
-
-            bigFirework();
-
-
-            /*
-             * Đợt pháo hoa thứ 2
-             */
-
-            setTimeout(
-                () => {
-
-                    bigFirework();
-
-                },
-                900
-            );
-
-
-            /*
-             * Đợt pháo hoa thứ 3
-             */
-
-            setTimeout(
-                () => {
-
-                    bigFirework();
-
-                },
-                1800
-            );
-
-
-            /*
-             * Đợt pháo hoa thứ 4
-             */
-
-            setTimeout(
-                () => {
-
-                    bigFirework();
-
-                },
-                3000
-            );
-        }
+    }, 1700);
+}
 
 
 
-        /* ==================================================
-           ĐÓNG THƯ
-        ================================================== */
+/* =====================================================
+   PHÁO HOA LỚN
+===================================================== */
 
-        function closeLetter() {
+function bigFirework() {
 
-            document.getElementById(
-                "letterOverlay"
-            ).style.display =
-                "none";
+    const x =
+        12 +
+        Math.random() * 76;
 
-
-            document.body.classList.remove(
-                "letter-open"
-            );
+    const y =
+        12 +
+        Math.random() * 50;
 
 
-            petals.classList.remove(
-                "love-mode"
-            );
-        }
+    firework(
+        window.innerWidth *
+        x / 100,
 
-
-
-        /* ==================================================
-           CLICK RA NGOÀI THƯ
-        ================================================== */
-
-        document
-            .getElementById(
-                "letterOverlay"
-            )
-            .addEventListener(
-                "click",
-                function(event) {
-
-                    if (
-                        event.target === this
-                    ) {
-
-                        closeLetter();
-
-                    }
-
-                }
-            );
+        window.innerHeight *
+        y / 100
+    );
+}
 
 
 
-        /* ==================================================
-           PHÁO HOA
-        ================================================== */
+/* =====================================================
+   ESC ĐÓNG THƯ
+===================================================== */
 
-        function firework(
-            x,
-            y
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
         ) {
 
-            const container =
-                document.createElement(
-                    "div"
-                );
+            closeLetter();
 
-
-            container.className =
-                "firework";
-
-
-            container.style.left =
-                x + "px";
-
-
-            container.style.top =
-                y + "px";
-
-
-            document.body.appendChild(
-                container
-            );
-
-
-            for (
-                let i = 0;
-                i < 55;
-                i++
-            ) {
-
-                const particle =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                particle.className =
-                    "particle";
-
-
-                const angle =
-                    Math.random()
-                    *
-                    Math.PI
-                    *
-                    2;
-
-
-                const distance =
-                    80 +
-                    Math.random()
-                    *
-                    200;
-
-
-                const px =
-                    Math.cos(angle)
-                    *
-                    distance;
-
-
-                const py =
-                    Math.sin(angle)
-                    *
-                    distance;
-
-
-                particle.style.setProperty(
-                    "--x",
-                    px + "px"
-                );
-
-
-                particle.style.setProperty(
-                    "--y",
-                    py + "px"
-                );
-
-
-                const size =
-                    4 +
-                    Math.random()
-                    * 5;
-
-
-                particle.style.width =
-                    size + "px";
-
-
-                particle.style.height =
-                    size + "px";
-
-
-                container.appendChild(
-                    particle
-                );
-            }
-
-
-            setTimeout(
-                () => {
-
-                    container.remove();
-
-                },
-                1500
-            );
         }
 
+    }
+);
 
-
-        /* ==================================================
-           PHÁO HOA LỚN
-        ================================================== */
-
-        function bigFirework() {
-
-            const positions = [
-
-                [15, 25],
-                [30, 20],
-                [50, 18],
-                [70, 22],
-                [85, 28],
-
-                [20, 55],
-                [40, 50],
-                [60, 48],
-                [80, 55],
-
-                [30, 75],
-                [70, 72]
-
-            ];
-
-
-            positions.forEach(
-                (
-                    position,
-                    index
-                ) => {
-
-                    setTimeout(
-                        () => {
-
-                            firework(
-
-                                window.innerWidth
-                                *
-                                position[0]
-                                / 100,
-
-                                window.innerHeight
-                                *
-                                position[1]
-                                / 100
-
-                            );
-
-                        },
-
-                        index * 180
-                    );
-
-                }
-            );
-        }
-
-
-
-        /* ==================================================
-           NHẠC
-        ================================================== */
-
-        const music =
-            document.getElementById(
-                "music"
-            );
-
-
-        const musicControl =
-            document.getElementById(
-                "musicControl"
-            );
-
-
-        let playing = false;
-
-
-
-        /* ==================================================
-           CẬP NHẬT ICON LOA
-        ================================================== */
-
-        function updateMusicButton() {
-
-            if (
-                music.paused
-            ) {
-
-                musicControl.innerHTML =
-                    "🔇";
-
-                musicControl.classList.remove(
-                    "playing"
-                );
-
-                playing = false;
-
-            } else {
-
-                musicControl.innerHTML =
-                    "🔊";
-
-                musicControl.classList.add(
-                    "playing"
-                );
-
-                playing = true;
-            }
-        }
-
-
-
-        /* ==================================================
-           PHÁT NHẠC
-        ================================================== */
-
-        function startMusic() {
-
-            music.volume = 0.7;
-
-
-            music.play()
-
-                .then(
-                    () => {
-
-                        playing = true;
-
-                        updateMusicButton();
-
-                    }
-                )
-
-                .catch(
-                    () => {
-
-                        /*
-                         * Chrome chặn autoplay
-                         * nếu chưa có tương tác.
-                         */
-
-                        playing = false;
-
-                        updateMusicButton();
-
-                    }
-                );
-        }
-
-
-
-        /* ==================================================
-           BẬT / TẮT NHẠC
-        ================================================== */
-
-        function toggleMusic() {
-
-            if (
-                music.paused
-            ) {
-
-                startMusic();
-
-            } else {
-
-                music.pause();
-
-                updateMusicButton();
-            }
-        }
-
-
-
-        /* ==================================================
-           KHI NHẠC TỰ KẾT THÚC
-        ================================================== */
-
-        music.addEventListener(
-            "play",
-            updateMusicButton
-        );
-
-
-        music.addEventListener(
-            "pause",
-            updateMusicButton
-        );
-
-
-
-        /* ==================================================
-           TỰ ĐỘNG PHÁT NHẠC
-        ================================================== */
-
-        window.addEventListener(
-            "load",
-            () => {
-
-                setTimeout(
-                    () => {
-
-                        startMusic();
-
-                    },
-                    500
-                );
-
-            }
-        );
-
-
-
-        /* ==================================================
-           TỰ PHÁT SAU TƯƠNG TÁC ĐẦU TIÊN
-        ================================================== */
-
-        document.addEventListener(
-            "pointerdown",
-            function firstInteraction() {
-
-                if (
-                    music.paused
-                ) {
-
-                    startMusic();
-
-                }
-
-            },
-            {
-                once: true
-            }
-        );
-
-
-
-    </script>
+</script>
 
 </body>
-
 </html>
